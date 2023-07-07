@@ -1,0 +1,1157 @@
+<html>
+    <head>
+        <title>
+            CryptoPepe customizer
+        </title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+        <style type="text/css">
+            img { float: left; width: 500px; margin-right: 10px; }
+        </style>
+    </head>
+
+    <body>
+        <div class="container pt-4">
+            <div class="row">
+                <div class="col pt-4">
+                    <h3 class="mb-3">Select the desired traits to create your custom CryptoPepe</h3>
+
+                    <form>
+                        <div class="row mb-3">
+                            <div class="col-3">
+                                <label for="shirt_select" class="col-form-label">Shirt</label>
+                            </div>
+                            <div class="col-9">
+                                <select id="shirt_select" class="form-select" aria-label="Default select example">
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-3">
+                                <label for="eyes_select" class="col-form-label">Eyes</label>
+                            </div>
+                            <div class="col-9">
+                                <select id="eyes_select" class="form-select" aria-label="Default select example">
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-3">
+                                <label for="hair_select" class="col-form-label">Hair</label>
+                            </div>
+                            <div class="col-9">
+                                <select id="hair_select" class="form-select" aria-label="Default select example">
+                                    <option value="">None</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-3">
+                                <label for="glasses_select" class="col-form-label">Glasses</label>
+                            </div>
+                            <div class="col-9">
+                                <select id="glasses_select" class="form-select" aria-label="Default select example">
+                                    <option value="">None</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-3">
+                                <label for="mouth_select" class="col-form-label">Mouth</label>
+                            </div>
+                            <div class="col-9">
+                                <select id="mouth_select" class="form-select" aria-label="Default select example">
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-3">
+                                <label for="neck_select" class="col-form-label">Neck</label>
+                            </div>
+                            <div class="col-9">
+                                <select id="neck_select" class="form-select" aria-label="Default select example">
+                                    <option value="">None</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+                <div class="col">
+                    <img id="builder-img">
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const parts = {
+                "general": [
+                    {
+                        "back": "Background.svg",
+                        "id": "background",
+                        "name": "background",
+                        "colors": {
+                            "BackgroundColor": "#E6E6E6"
+                        }
+                    },
+                    {
+                        "back": "HeadBack.svg",
+                        "front": "HeadFront.svg",
+                        "id": "head",
+                        "name": "head",
+                        "colors": {
+                            "Skin.Color": "#68984E"
+                        }
+                    }
+                ],
+                "eyes": [
+                    {
+                        "back": "Colored Eyes.svg",
+                        "id": "colored_eyes",
+                        "name": "colored eyes",
+                        "colors": {
+                        "Head.Eyes.EyeColor": "#0B4AA8"
+                        }
+                    },
+                    {
+                        "back": "Ethereum Eyes.svg",
+                        "id": "ethereum_eyes",
+                        "name": "Ethereum eyes"
+                    },
+                    {
+                        "back": "Money Eyes.svg",
+                        "id": "money_eyes",
+                        "name": "$$ eyes"
+                    },
+                    {
+                        "back": "Closed Eyes 2.svg",
+                        "id": "closed_eyes_2",
+                        "name": "closed eyes 2",
+                        "colors": {
+                        "Skin.Color": "#68984E"
+                        }
+                    },
+                    {
+                        "back": "Closed Eyes.svg",
+                        "id": "closed_eyes",
+                        "name": "closed eyes",
+                        "colors": {
+                        "Skin.Color": "#68984E"
+                        }
+                    },
+                    {
+                        "back": "Crying Eyes 2.svg",
+                        "id": "crying_eyes_2",
+                        "name": "crying eyes 2",
+                        "colors": {
+                        "Skin.Color": "#68984E"
+                        }
+                    },
+                    {
+                        "back": "Crying Eyes.svg",
+                        "id": "crying_eyes",
+                        "name": "crying eyes"
+                    },
+                    {
+                        "back": "Half Closed Eyes.svg",
+                        "id": "half_closed_eyes",
+                        "name": "half closed eyes",
+                        "colors": {
+                        "Skin.Color": "#68984E"
+                        }
+                    },
+                    {
+                        "back": "Mad Eyes.svg",
+                        "id": "mad_eyes",
+                        "name": "mad eyes",
+                        "colors": {
+                        "Skin.Color": "#68984E"
+                        }
+                    },
+                    {
+                        "back": "Red Eyes.svg",
+                        "id": "red_eyes",
+                        "name": "red eyes"
+                    },
+                    {
+                        "back": "Small Eyes.svg",
+                        "id": "small_eyes",
+                        "name": "small eyes"
+                    },
+                    {
+                        "back": "Wide Eyes.svg",
+                        "id": "wide_eyes",
+                        "name": "wide eyes",
+                        "colors": {
+                        "Skin.Color": "#68984E"
+                        }
+                    },
+                    {
+                        "back": "Alien Eyes and Nose.svg",
+                        "id": "alien_eyes",
+                        "name": "alien eyes",
+                        "colors": {
+                        "Skin.Color": "#68984E"
+                        }
+                    },
+                    {
+                        "back": "Ghandi Pepe.svg",
+                        "id": "ghandi",
+                        "name": "Ghandi",
+                        "colors": {
+                        "Skin.Color": "#68984E"
+                        }
+                    },
+                    {
+                        "back": "Illuminati Eye.svg",
+                        "id": "illuminati_eye",
+                        "name": "illuminati eye"
+                    },
+                    {
+                        "back": "Smug Eyes.svg",
+                        "id": "smug_eyes",
+                        "name": "Smug eyes",
+                        "colors": {
+                        "Skin.Color": "#68984E"
+                        }
+                    },
+                    {
+                        "back": "FutureRobotEyes.svg",
+                        "id": "future_robot_eyes",
+                        "name": "Future Robot eyes",
+                        "colors": {
+                        "Extra.Glasses.PrimaryColor": "#3a60ff",
+                        "Extra.Glasses.SecondaryColor": "#2392ff"
+                        }
+                    },
+                    {
+                        "back": "MonkasEye.svg",
+                        "id": "monkas_eye",
+                        "name": "Monkas Eye"
+                    },
+                    {
+                        "back": "ScaryEyes.svg",
+                        "id": "scary_eyes",
+                        "name": "Scary eyes"
+                    },
+                    {
+                        "back": "WokeEyes.svg",
+                        "id": "woke_eyes",
+                        "name": "Woke eyes",
+                        "colors": {
+                        "Skin.Color": "#68984E"
+                        }
+                    },
+                    {
+                        "back": "LolEyes.svg",
+                        "id": "lol_eyes",
+                        "name": "LOL Eyes",
+                        "colors": {
+                        "Head.Eyes.EyeColor": "#ff0000"
+                        }
+                    }
+                ],
+                "glasses": [
+                    {
+                        "front": "SmartGlasses.svg",
+                        "id": "smart_glasses",
+                        "name": "smartglasses",
+                        "colors": {
+                        "Extra.Glasses.SecondaryColor": "#CCCCCC"
+                        }
+                    },
+                    {
+                        "front": "Sunglasses 1.svg",
+                        "id": "sunglasses_1",
+                        "name": "sunglasses 1",
+                        "colors": {
+                        "Extra.Glasses.PrimaryColor": "#ff0000",
+                        "Extra.Glasses.SecondaryColor": "#4D4D4D"
+                        }
+                    },
+                    {
+                        "front": "Sunglasses 2.svg",
+                        "id": "sunglasses_2",
+                        "name": "sunglasses 2",
+                        "colors": {
+                        "Extra.Glasses.PrimaryColor": "#1A1A1A",
+                        "Extra.Glasses.SecondaryColor": "#ADADAD"
+                        }
+                    },
+                    {
+                        "front": "Thug Life Glasses.svg",
+                        "id": "thuglife",
+                        "name": "Thug Life glasses",
+                        "colors": {
+                        "Extra.Glasses.PrimaryColor": "#000044",
+                        "Extra.Glasses.SecondaryColor": "#FFFFFF"
+                        }
+                    },
+                    {
+                        "front": "Pirate.svg",
+                        "id": "pirate_hat",
+                        "name": "pirate_hat",
+                        "colors": {
+                        "Extra.Glasses.PrimaryColor": "#666666",
+                        "Extra.Glasses.SecondaryColor": "#7F0502"
+                        }
+                    },
+                    {
+                        "front": "ExplosionGoggles.svg",
+                        "id": "explosion_goggles",
+                        "name": "Explosion Goggles"
+                    },
+                    {
+                        "front": "FutureGlasses.svg",
+                        "id": "future_glasses",
+                        "name": "Future glasses"
+                    },
+                    {
+                        "front": "KimJongUnGlasses.svg",
+                        "id": "kim_jong_un_glasses",
+                        "name": "Kim Jong Un glasses"
+                    },
+                    {
+                        "front": "VRSet.svg",
+                        "id": "vr_set",
+                        "name": "VRSet"
+                    }
+                ],
+                "hair": [
+                    {
+                        "front": "70s Hair.svg",
+                        "id": "70s_hair",
+                        "name": "70s hair",
+                        "colors": {
+                        "Head.Hair.HairColor": "#ff0000"
+                        }
+                    },
+                    {
+                        "front": "Elvis Hair.svg",
+                        "id": "elvis_hair",
+                        "name": "Elvis hair",
+                        "colors": {
+                        "Head.Hair.HairColor": "#ff0000"
+                        }
+                    },
+                    {
+                        "front": "Goku Hair.svg",
+                        "id": "goku_hair",
+                        "name": "Goku hair",
+                        "colors": {
+                        "Head.Hair.HairColor": "#ff0000"
+                        }
+                    },
+                    {
+                        "front": "Modern Hair.svg",
+                        "id": "modern_hair",
+                        "name": "modern hair",
+                        "colors": {
+                        "Head.Hair.HairColor": "#ff0000"
+                        }
+                    },
+                    {
+                        "front": "Nerd Hair.svg",
+                        "id": "nerd_hair",
+                        "name": "nerd hair",
+                        "colors": {
+                        "Head.Hair.HairColor": "#78391E"
+                        }
+                    },
+                    {
+                        "front": "Trump Hair.svg",
+                        "id": "trump_hair",
+                        "name": "Trump hair",
+                        "colors": {
+                        "Head.Hair.HairColor": "#E4B833"
+                        }
+                    },
+                    {
+                        "front": "Bitcoin Cap.svg",
+                        "id": "bitcoin_cap",
+                        "name": "Bitcoin cap",
+                        "colors": {
+                        "Head.Hair.HatColor": "#F99F30",
+                        "Head.Hair.HatColor2": "#AD661F"
+                        }
+                    },
+                    {
+                        "front": "Mine Hat.svg",
+                        "id": "mine_hat",
+                        "name": "Miner hat",
+                        "colors": {
+                        "Head.Hair.HatColor": "#CCCCCC"
+                        }
+                    },
+                    {
+                        "front": "Bandana.svg",
+                        "id": "bandana",
+                        "name": "bandana",
+                        "colors": {
+                        "Head.Hair.HatColor": "#ff0000"
+                        }
+                    },
+                    {
+                        "front": "Beanie.svg",
+                        "id": "beanie",
+                        "name": "beanie",
+                        "colors": {
+                        "Head.Hair.HatColor": "#5B3B3B"
+                        }
+                    },
+                    {
+                        "front": "Hat.svg",
+                        "id": "hat",
+                        "name": "hat",
+                        "colors": {
+                        "Head.Hair.HatColor": "#3E4E5C"
+                        }
+                    },
+                    {
+                        "front": "Hat 2.svg",
+                        "id": "hi_hat",
+                        "name": "High hat",
+                        "colors": {
+                        "Head.Hair.HatColor2": "#D91F26"
+                        }
+                    },
+                    {
+                        "front": "Mining Cap.svg",
+                        "id": "mining_cap",
+                        "name": "Mining cap"
+                    },
+                    {
+                        "front": "Mohawk.svg",
+                        "id": "mohawk",
+                        "name": "mohawk",
+                        "colors": {
+                        "Head.Hair.HatColor2": "#ff0000"
+                        }
+                    },
+                    {
+                        "front": "Mohawk.svg",
+                        "id": "mohawk",
+                        "name": "mohawk",
+                        "colors": {
+                        "Head.Hair.HatColor2": "#ff0000"
+                        }
+                    },
+                    {
+                        "front": "Terrorist.svg",
+                        "id": "terrorist",
+                        "name": "terrorist"
+                    },
+                    {
+                        "front": "Thug Life Cap.svg",
+                        "id": "thug_life_cap",
+                        "name": "Thug Life cap"
+                    },
+                    {
+                        "front": "Wig.svg",
+                        "id": "wig",
+                        "name": "wig",
+                        "colors": {
+                        "Head.Hair.HatColor": "#ff0000"
+                        }
+                    },
+                    {
+                        "front": "big_bun.svg",
+                        "id": "big_bun",
+                        "name": "big bun",
+                        "colors": {
+                        "Head.Hair.HairColor": "#ff0000"
+                        }
+                    },
+                    {
+                        "front": "bun_beard.svg",
+                        "id": "bun_beard",
+                        "name": "bun & beard",
+                        "colors": {
+                        "Head.Hair.HairColor": "#ff0000"
+                        }
+                    },
+                    {
+                        "front": "cowboy_hat.svg",
+                        "id": "cowboy_hat",
+                        "name": "cowboy hat",
+                        "colors": {
+                        "Head.Hair.HatColor2": "#ac693c",
+                        "Head.Hair.HatColor": "#825a5d",
+                        "Head.Hair.HairColor": "#00ff00"
+                        }
+                    },
+                    {
+                        "front": "old_bun.svg",
+                        "id": "old_bun",
+                        "name": "oldschool bun",
+                        "colors": {
+                        "Head.Hair.HairColor": "#864646"
+                        }
+                    },
+                    {
+                        "front": "spike_hair.svg",
+                        "id": "spike_hair",
+                        "name": "spikes",
+                        "colors": {
+                        "Head.Hair.HairColor": "#ff0000"
+                        }
+                    },
+                    {
+                        "front": "two_braids.svg",
+                        "id": "two_braids",
+                        "name": "double braids",
+                        "colors": {
+                        "Head.Hair.HairColor": "#ffd942"
+                        }
+                    },
+                    {
+                        "back": "pharaoh_back.svg",
+                        "front": "pharaoh_front.svg",
+                        "id": "pharaoh",
+                        "name": "pharaoh",
+                        "colors": {
+                        "Head.Hair.HatColor2": "#ff0000"
+                        }
+                    },
+                    {
+                        "front": "Chaplin.svg",
+                        "id": "chaplin",
+                        "name": "Chaplin"
+                    },
+                    {
+                        "front": "EgyptianHat.svg",
+                        "id": "egyptian_hat",
+                        "colors": {
+                        "Head.Hair.HatColor2": "#437dc0",
+                        "Head.Hair.HatColor": "#4353c0"
+                        }
+                    },
+                    {
+                        "front": "Frankenstein.svg",
+                        "back": "Frankenstein_back.svg",
+                        "id": "frankenstein",
+                        "name": "Frankenstein"
+                    },
+                    {
+                        "front": "IndianHat.svg",
+                        "back": "IndianHat_back.svg",
+                        "id": "indian_hat",
+                        "name": "Indian Hat",
+                        "colors": {
+                        "Head.Hair.HatColor2": "#ffbd35",
+                        "Head.Hair.HatColor": "#ff6819",
+                        "Extra.Glasses.PrimaryColor": "#ffed31"
+                        }
+                    },
+                    {
+                        "front": "KimJongUnHair.svg",
+                        "id": "kim_jong_un_hair",
+                        "name": "Kim Jong Un Hair"
+                    },
+                    {
+                        "front": "KnifeThroughHead.svg",
+                        "back": "KnifeThroughHead_back.svg",
+                        "id": "knife_through_head",
+                        "name": "Knife Through Head"
+                    },
+                    {
+                        "front": "Mcafee.svg",
+                        "id": "mcafee",
+                        "name": "John McAfee",
+                        "colors": {
+                        "Head.Hair.HairColor": "#f5e392"
+                        }
+                    },
+                    {
+                        "front": "MinerHat2.svg",
+                        "id": "minerhat2",
+                        "name": "Miner Hat2"
+                    },
+                    {
+                        "front": "Nakamoto.svg",
+                        "back": "Nakamoto_back.svg",
+                        "id": "nakamoto",
+                        "name": "Nakamoto"
+                    },
+                    {
+                        "front": "Nun.svg",
+                        "back": "Nun_back.svg",
+                        "id": "nun",
+                        "name": "Nun"
+                    },
+                    {
+                        "front": "PaperHat.svg",
+                        "id": "paper_hat",
+                        "name": "Paper Hat"
+                    },
+                    {
+                        "front": "Rollers.svg",
+                        "back": "Rollers_back.svg",
+                        "id": "rollers",
+                        "name": "Rollers",
+                        "colors": {
+                        "Head.Hair.HairColor": "#8d3d26",
+                        "Head.Hair.HatColor2": "#eb2626"
+                        }
+                    },
+                    {
+                        "front": "Samurai.svg",
+                        "back": "Samurai_back.svg",
+                        "id": "samurai",
+                        "name": "Samurai",
+                        "colors": {
+                        "Head.Hair.HatColor2": "#00f"
+                        }
+                    },
+                    {
+                        "front": "SombreroHat.svg",
+                        "id": "sombrero_hat",
+                        "name": "Sombrero Hat"
+                    },
+                    {
+                        "front": "TinFoilAntennaHat.svg",
+                        "back": "TinFoilAntennaHat_back.svg",
+                        "id": "tinfoil_antenna_hat",
+                        "name": "Tin Foil Antenna Hat"
+                    },
+                    {
+                        "front": "TurkishHat.svg",
+                        "id": "turkish_hat",
+                        "name": "Turkish Hat"
+                    },
+                    {
+                        "front": "UASFHat.svg",
+                        "back": "UASFHat_back.svg",
+                        "id": "uasf_hat",
+                        "name": "UASFHat"
+                    },
+                    {
+                        "front": "CryptoPepesHat.svg",
+                        "back": "UASFHat_back.svg",
+                        "id": "cpep_uasf_hat",
+                        "name": "CryptoPepes (UASF style)"
+                    },
+                    {
+                        "front": "VikingHat.svg",
+                        "id": "viking_hat",
+                        "name": "Viking Hat"
+                    },
+                    {
+                        "front": "WizardHat.svg",
+                        "id": "wizard_hat",
+                        "name": "Wizard Hat"
+                    },
+                    {
+                        "front": "vitalik_hair_front.svg",
+                        "back": "vitalik_hair_back.svg",
+                        "id": "vitalik_hair",
+                        "name": "Vitalik Hair",
+                        "colors": {
+                        "Skin.Color": "#68984e"
+                        }
+                    }
+                ],
+                "mouth": [
+                    {
+                        "front": "Basic Lips.svg",
+                        "id": "basic_lips",
+                        "name": "basic lips"
+                    },
+                    {
+                        "front": "Cool Smile.svg",
+                        "id": "cool_smile",
+                        "name": "cool smile"
+                    },
+                    {
+                        "front": "Crying Lips.svg",
+                        "id": "crying_lips",
+                        "name": "crying lips"
+                    },
+                    {
+                        "front": "Extreme Sad Lips.svg",
+                        "id": "extreme_sad_lips",
+                        "name": "extreme sad lips"
+                    },
+                    {
+                        "front": "Fake Smile.svg",
+                        "id": "fake_smile",
+                        "name": "fake smile"
+                    },
+                    {
+                        "front": "Happy Lips.svg",
+                        "id": "happy_lips",
+                        "name": "happy lips"
+                    },
+                    {
+                        "front": "Lips to Kiss.svg",
+                        "id": "lips_to_kiss",
+                        "name": "lips to kiss"
+                    },
+                    {
+                        "front": "Mad Lips 2.svg",
+                        "id": "mad_lips_2",
+                        "name": "mad lips 2"
+                    },
+                    {
+                        "front": "Mad Mouth.svg",
+                        "id": "mad_mouth",
+                        "name": "mad mouth"
+                    },
+                    {
+                        "front": "Open Mouth.svg",
+                        "id": "open_mouth",
+                        "name": "open mouth"
+                    },
+                    {
+                        "front": "Sad Lips 2.svg",
+                        "id": "sad_lips_2",
+                        "name": "sad lips 2"
+                    },
+                    {
+                        "front": "Smiling Lips.svg",
+                        "id": "smiling_lips",
+                        "name": "smiling lips"
+                    },
+                    {
+                        "front": "Surprised Mouth.svg",
+                        "id": "surprised_mouth",
+                        "name": "surprised mouth"
+                    },
+                    {
+                        "front": "Tongue Out.svg",
+                        "id": "tongue_out",
+                        "name": "tongue out",
+                        "colors": {
+                        "BackgroundColor": "#E6E6E6"
+                        }
+                    },
+                    {
+                        "front": "What Mouth.svg",
+                        "id": "what_mouth",
+                        "name": "what mouth",
+                        "colors": {
+                        "BackgroundColor": "#E6E6E6"
+                        }
+                    },
+                    {
+                        "front": "Wide Mouth.svg",
+                        "id": "wide_mouth",
+                        "name": "wide mouth"
+                    },
+                    {
+                        "front": "Wtf Mouth.svg",
+                        "id": "wtf_mouth",
+                        "name": "WTF mouth"
+                    },
+                    {
+                        "front": "Young Lips.svg",
+                        "id": "young_lips",
+                        "name": "young lips"
+                    },
+                    {
+                        "front": "Smug Lips.svg",
+                        "id": "smug_lips",
+                        "name": "smug lips",
+                        "colors": {
+                        "Skin.Color": "#68984E"
+                        }
+                    },
+                    {
+                        "front": "braces.svg",
+                        "id": "braces",
+                        "name": "braces"
+                    },
+                    {
+                        "front": "rabbit_teeth.svg",
+                        "id": "rabbit_teeth",
+                        "name": "rabbit teeth"
+                    },
+                    {
+                        "front": "bad_ass_mouth.svg",
+                        "id": "bad_ass_mouth",
+                        "name": "bad ass mouth",
+                        "colors": {
+                        "Head.Hair.HairColor": "#ff0000"
+                        }
+                    },
+                    {
+                        "front": "SmugMustache.svg",
+                        "id": "smug_mustache",
+                        "name": "Smug Mustache",
+                        "colors": {
+                        "Skin.Color": "#68984E"
+                        }
+                    },
+                    {
+                        "front": "DrinkCoffee.svg",
+                        "id": "drink_coffee",
+                        "name": "Drink Coffee",
+                        "colors": {
+                        "Skin.Color": "#68984e"
+                        }
+                    },
+                    {
+                        "front": "DrinkWine.svg",
+                        "id": "drink_wine",
+                        "name": "Drink Wine",
+                        "colors": {
+                        "Skin.Color": "#68984e"
+                        }
+                    },
+                    {
+                        "front": "FeelsBirthday.svg",
+                        "id": "feels_birthday",
+                        "name": "Feels Birthday"
+                    },
+                    {
+                        "front": "OldSadMouth.svg",
+                        "id": "old_sad_mouth",
+                        "name": "Old Sad Mouth"
+                    },
+                    {
+                        "front": "LolMouth.svg",
+                        "id": "lol_mouth",
+                        "name": "LOL Mouth"
+                    }
+                ],
+                "neck": [
+                    {
+                        "back": "Choker Necklace.svg",
+                        "id": "choker_necklace",
+                        "name": "choker necklace"
+                    },
+                    {
+                        "back": "Dollar Necklace.svg",
+                        "id": "dollar_necklace",
+                        "name": "dollar necklace"
+                    },
+                    {
+                        "back": "Punk Necklace.svg",
+                        "id": "punk_necklace",
+                        "name": "punk necklace"
+                    },
+                    {
+                        "back": "cowboy_neck.svg",
+                        "id": "cowboy_neck",
+                        "name": "cowboy scarf"
+                    }
+                ],
+                "shirt": [
+                    {
+                        "back": "Basic Shirt.svg",
+                        "id": "basic_shirt",
+                        "name": "basic shirt",
+                        "colors": {
+                        "Body.Shirt.ShirtColor": "#2249FC"
+                        }
+                    },
+                    {
+                        "back": "Camp Shirt.svg",
+                        "id": "camp_shirt",
+                        "name": "camp shirt",
+                        "colors": {
+                        "Body.Shirt.ShirtColor": "#FFFFFF"
+                        }
+                    },
+                    {
+                        "back": "Suit and tie.svg",
+                        "id": "suit",
+                        "name": "Suit and tie",
+                        "colors": {
+                        "Body.Shirt.ShirtColor": "#DD0000"
+                        }
+                    },
+                    {
+                        "back": "Darth Pepe.svg",
+                        "id": "darth_pepe",
+                        "name": "darth pepe"
+                    },
+                    {
+                        "back": "KimJongUnShirt.svg",
+                        "id": "kim_jong_un_shirt",
+                        "name": "Kim Jong Un Shirt"
+                    },
+                    {
+                        "back": "MexicanPoncho.svg",
+                        "id": "mexican_poncho",
+                        "name": "Mexican Poncho",
+                        "colors": {
+                        "Skin.Color": "#68984E"
+                        }
+                    },
+                    {
+                        "front": "Pepemon.svg",
+                        "back": "Pepemon_back.svg",
+                        "id": "pepemon",
+                        "name": "Pepemon"
+                    },
+                    {
+                        "front": "Dracula.svg",
+                        "back": "DraculaBack.svg",
+                        "id": "dracula",
+                        "name": "Dracula Suit"
+                    },
+                    {
+                        "back": "vitalik_shirt_back.svg",
+                        "front": "vitalik_shirt_front.svg",
+                        "id": "vitalik_shirt",
+                        "name": "Vitalik Shirt",
+                        "colors": {
+                            "Skin.Color": "#68984e"
+                        }
+                    }
+                ]
+            }
+
+            const parser = new DOMParser()
+            const s = new XMLSerializer()
+
+            function setImageToSVG(img, svg) {
+                img.src = "data:image/svg+xml;charset=utf-8,"+svg.replace(/(\r\n|\n|\r)/gm, "").replace(/>\s+</g,'><');
+            }
+
+            async function getSVG(path) {
+                const response = await fetch(`./pepe-svg-art/${path}`)
+                const data = await response.text()
+                return data
+            }
+
+            async function getPart(category, file) {
+                const res = await getSVG(`${category}/${file}`)
+                let doc = parser.parseFromString(res, "image/svg+xml")
+                return s.serializeToString(doc.querySelector('svg g'))
+            }
+
+            function filterPart(key, id) {
+                const arr = Object.keys(parts).filter((key) => key.includes(key)).reduce((cur, key) => { return Object.assign(cur, { [key]: parts[key] })}, {})[key]
+
+                if(id) {
+                    return arr.filter(i => i.id === id)[0]
+                }
+
+                return arr
+            }
+
+            function prefillSelect(key) {
+                const select = document.querySelector(`#${key}_select`)
+                const options = filterPart(key)
+
+                console.log(options, options.sort(function(a, b) {
+                    if(a.name && b.name) {
+                        var x = a.name.toLowerCase();
+                        var y = b.name.toLowerCase();
+                        return x < y ? -1 : x > y ? 1 : 0;
+                    } else {
+                        return 1
+                    }
+                }))
+                
+                options.forEach(option => {
+                    const { id, name } = option
+                    select.innerHTML += `<option value="${id}">${name}</option>`
+                })
+            }
+
+            function prefillForm() {
+                prefillSelect('eyes')
+                prefillSelect('glasses')
+                prefillSelect('hair')
+                prefillSelect('mouth')
+                prefillSelect('neck')
+                prefillSelect('shirt')
+            }
+
+            async function init () {
+
+                let background_color = '#d4c8de'
+                let skin_color = '#72a657'
+                let shirt_color = '#4fb68b'
+                let hair_color = '#000000'
+
+                let background = ''
+                let shirt_back = ''
+                let shirt_front = ''
+                let head_back = ''
+                let head_front = ''
+                let eyes = ''
+                let mouth = ''
+                let neck = ''
+                let hair = ''
+                let glasses = ''
+
+                let selected_shirt = filterPart('shirt', document.querySelector('#shirt_select').value)
+                let selected_mouth = filterPart('mouth', document.querySelector('#mouth_select').value)
+
+                background = await getPart('general', filterPart('general', 'background').back)
+                shirt_back = await getPart('shirt', selected_shirt.back)
+
+                if(selected_shirt.front) {
+                    shirt_front = await getPart('shirt', selected_shirt.front)
+                    shirt_front = shirt_front.replace(/\#2249FC/gim, shirt_color)
+                }
+                
+                head_back = await getPart('general', filterPart('general', 'head').back)
+                
+                if(document.querySelector('#neck_select').value !== '') {
+                    neck = await getPart('neck', filterPart('neck', document.querySelector('#neck_select').value).back)
+                }
+                
+                head_front = await getPart('general', filterPart('general', 'head').front)
+                eyes = await getPart('eyes', filterPart('eyes', document.querySelector('#eyes_select').value).back)
+                
+                if(document.querySelector('#hair_select').value !== '') {
+                    hair = await getPart('hair', filterPart('hair', document.querySelector('#hair_select').value).front)
+                    hair = hair.replace(/\#ff0000|\#00ff00/gim, hair_color)
+                }
+
+                mouth = await getPart('mouth', selected_mouth.front)
+                
+                if(document.querySelector('#glasses_select').value !== '') {
+                    glasses = await getPart('glasses', filterPart('glasses', document.querySelector('#glasses_select').value).front)
+                }
+
+                const template = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            x="0px" y="0px" viewBox="0 0 2500 2500">
+                    <g>
+
+                    {{ CallTemplate "general>background" . "back" }}
+
+                    {{ CallTemplate "general>background" . "front" }}
+
+                    {{ CallTemplate .Head.Hair.HairType . "back" }}
+
+                    {{ CallTemplate .Body.Shirt.ShirtType . "back" }}
+
+                    {{ CallTemplate .Body.Neck . "back" }}
+
+                    {{ CallTemplate "general>head" . "back" }}
+                    {{ CallTemplate "general>head" . "front" }}
+
+                    {{ CallTemplate .Head.Eyes.EyeType . "back" }}
+
+                    {{ CallTemplate .Head.Mouth . "back" }}
+
+                    {{ CallTemplate .Extra.Glasses.GlassesType . "back" }}
+
+
+
+                    {{ CallTemplate .Head.Eyes.EyeType . "front" }}
+
+                    {{ CallTemplate .Head.Hair.HairType . "front" }}
+
+                    {{ CallTemplate .Head.Mouth . "front" }}
+
+                    {{ CallTemplate .Body.Shirt.ShirtType . "front" }}
+
+                    {{ CallTemplate .Body.Neck . "front" }}
+
+                    {{ CallTemplate .Extra.Glasses.GlassesType . "front" }}
+
+                    </g>
+                </svg>
+                {{ end }}
+
+                {{ define "none>back" }}
+                    <!-- Explicitly None -->
+                {{ end }}
+
+                {{ define "none>front" }}
+                <!-- Explicitly None -->
+                {{ end }}
+
+                {{ define ">front" }}
+                <!-- Implicitly None, for testing -->
+                {{ end }}
+
+                {{ define ">back" }}
+                <!-- Implicitly None, for testing -->
+                {{ end }}
+
+
+                {{ define "" }}
+                    <!-- Fallback -->
+                {{ end }}
+
+                {{ define "error>fallback" }}
+                    <!-- Missing/Error -->
+                {{ end }}
+                {{ define "error>fallback>back" }}
+                <!-- Missing/Error -->
+                {{ end }}
+                {{ define "error>fallback>front" }}
+                <!-- Missing/Error -->
+                {{ end }}
+
+                `
+
+                if(selected_shirt.id == "darth_pepe") {
+                    glasses = ''
+                    hair = ''
+                    neck = ''
+                    // Darth vader has special black skin
+                    skin_color = "#000000"
+                }
+
+                if(selected_shirt.id == "pepemon") {
+                    hair = ''
+                    neck = ''
+                    // Special pika-yellow skin
+                    skin_color = "#fef135"
+
+                    // Enforce simple lips, red dot next to mouth has to fit
+                    if(!selected_mouth.id !== 'simple_mouth') {
+                        mouth = await getPart('mouth', filterPart('mouth', 'basic_lips').front)
+                    }
+                }
+
+                const builder_pepe = `
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2500 2500">
+                        ${background.replace(/\#E6E6E6/gim, background_color)}
+
+                        ${head_back.replace(/\#68984E/gim, skin_color)}
+
+                        ${head_front.replace(/\#68984E/gim, skin_color)}
+        
+                        ${shirt_back.replace(/\#2249FC/gim, shirt_color)}
+
+                        ${hair}
+
+                        ${shirt_front}
+
+                        ${neck}
+
+                        ${eyes.replace(/\#68984E/gim, skin_color)}
+
+                        ${glasses}
+
+                        ${mouth.replace(/\#ff0000/gim, hair_color)}
+
+                    </svg>
+                `
+
+                let blob = new Blob([builder_pepe], {type: 'image/svg+xml'});
+                let url = URL.createObjectURL(blob);
+                image = document.querySelector('#builder-img')
+                image.src = url;
+                image.addEventListener('load', () => URL.revokeObjectURL(url), {once: true});
+            }
+
+            prefillForm()
+
+            document.body.addEventListener("change", function(event) {
+                if(event.target.classList.contains("form-select")){
+                    init()
+                }
+            })
+
+            init()
+        </script>
+    </body>
+</html>
