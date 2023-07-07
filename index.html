@@ -68,6 +68,7 @@
                             </div>
                             <div class="col-sm-9">
                                 <select id="mouth_select" class="form-select" aria-label="Default select example">
+                                    <option value="">None</option>
                                 </select>
                             </div>
                         </div>
@@ -93,6 +94,8 @@
         </div>
 
         <script>
+            let colors = []
+
             const parts = {
                 "general": [
                     {
@@ -100,7 +103,7 @@
                         "id": "background",
                         "name": "background",
                         "colors": {
-                            "BackgroundColor": "#E6E6E6"
+                            "background_color": "#E6E6E6"
                         }
                     },
                     {
@@ -109,7 +112,7 @@
                         "id": "head",
                         "name": "head",
                         "colors": {
-                            "Skin.Color": "#68984E"
+                                "skin_color": "#68984E"
                         }
                     }
                 ],
@@ -137,7 +140,7 @@
                         "id": "closed_eyes_2",
                         "name": "closed eyes 2",
                         "colors": {
-                        "Skin.Color": "#68984E"
+                            "skin_color": "#68984E"
                         }
                     },
                     {
@@ -145,7 +148,7 @@
                         "id": "closed_eyes",
                         "name": "closed eyes",
                         "colors": {
-                        "Skin.Color": "#68984E"
+                            "skin_color": "#68984E"
                         }
                     },
                     {
@@ -153,7 +156,7 @@
                         "id": "crying_eyes_2",
                         "name": "crying eyes 2",
                         "colors": {
-                        "Skin.Color": "#68984E"
+                            "skin_color": "#68984E"
                         }
                     },
                     {
@@ -166,7 +169,7 @@
                         "id": "half_closed_eyes",
                         "name": "half closed eyes",
                         "colors": {
-                        "Skin.Color": "#68984E"
+                            "skin_color": "#68984E"
                         }
                     },
                     {
@@ -174,7 +177,7 @@
                         "id": "mad_eyes",
                         "name": "mad eyes",
                         "colors": {
-                        "Skin.Color": "#68984E"
+                            "skin_color": "#68984E"
                         }
                     },
                     {
@@ -192,7 +195,7 @@
                         "id": "wide_eyes",
                         "name": "wide eyes",
                         "colors": {
-                        "Skin.Color": "#68984E"
+                            "skin_color": "#68984E"
                         }
                     },
                     {
@@ -200,7 +203,7 @@
                         "id": "alien_eyes",
                         "name": "alien eyes",
                         "colors": {
-                        "Skin.Color": "#68984E"
+                            "skin_color": "#68984E"
                         }
                     },
                     {
@@ -208,7 +211,7 @@
                         "id": "ghandi",
                         "name": "Ghandi",
                         "colors": {
-                        "Skin.Color": "#68984E"
+                            "skin_color": "#68984E"
                         }
                     },
                     {
@@ -221,7 +224,7 @@
                         "id": "smug_eyes",
                         "name": "Smug eyes",
                         "colors": {
-                        "Skin.Color": "#68984E"
+                            "skin_color": "#68984E"
                         }
                     },
                     {
@@ -248,7 +251,7 @@
                         "id": "woke_eyes",
                         "name": "Woke eyes",
                         "colors": {
-                        "Skin.Color": "#68984E"
+                            "skin_color": "#68984E"
                         }
                     },
                     {
@@ -332,7 +335,7 @@
                         "id": "70s_hair",
                         "name": "70s hair",
                         "colors": {
-                        "Head.Hair.HairColor": "#ff0000"
+                            "hair_color": "#ff0000"
                         }
                     },
                     {
@@ -340,7 +343,7 @@
                         "id": "elvis_hair",
                         "name": "Elvis hair",
                         "colors": {
-                        "Head.Hair.HairColor": "#ff0000"
+                            "hair_color": "#ff0000"
                         }
                     },
                     {
@@ -348,7 +351,7 @@
                         "id": "goku_hair",
                         "name": "Goku hair",
                         "colors": {
-                        "Head.Hair.HairColor": "#ff0000"
+                            "hair_color": "#ff0000"
                         }
                     },
                     {
@@ -356,7 +359,7 @@
                         "id": "modern_hair",
                         "name": "modern hair",
                         "colors": {
-                        "Head.Hair.HairColor": "#ff0000"
+                            "hair_color": "#ff0000"
                         }
                     },
                     {
@@ -364,7 +367,7 @@
                         "id": "nerd_hair",
                         "name": "nerd hair",
                         "colors": {
-                        "Head.Hair.HairColor": "#78391E"
+                            "hair_color": "#78391E"
                         }
                     },
                     {
@@ -372,7 +375,7 @@
                         "id": "trump_hair",
                         "name": "Trump hair",
                         "colors": {
-                        "Head.Hair.HairColor": "#E4B833"
+                            "hair_color": "#E4B833"
                         }
                     },
                     {
@@ -380,8 +383,8 @@
                         "id": "bitcoin_cap",
                         "name": "Bitcoin cap",
                         "colors": {
-                        "Head.Hair.HatColor": "#F99F30",
-                        "Head.Hair.HatColor2": "#AD661F"
+                            "hat_color": "#F99F30",
+                            "hat_color2": "#AD661F"
                         }
                     },
                     {
@@ -389,7 +392,7 @@
                         "id": "mine_hat",
                         "name": "Miner hat",
                         "colors": {
-                        "Head.Hair.HatColor": "#CCCCCC"
+                            "hat_color": "#CCCCCC"
                         }
                     },
                     {
@@ -397,7 +400,7 @@
                         "id": "bandana",
                         "name": "bandana",
                         "colors": {
-                        "Head.Hair.HatColor": "#ff0000"
+                            "hat_color": "#ff0000"
                         }
                     },
                     {
@@ -405,7 +408,7 @@
                         "id": "beanie",
                         "name": "beanie",
                         "colors": {
-                        "Head.Hair.HatColor": "#5B3B3B"
+                            "hat_color": "#5B3B3B"
                         }
                     },
                     {
@@ -413,7 +416,7 @@
                         "id": "hat",
                         "name": "hat",
                         "colors": {
-                        "Head.Hair.HatColor": "#3E4E5C"
+                            "hat_color": "#3E4E5C"
                         }
                     },
                     {
@@ -421,7 +424,7 @@
                         "id": "hi_hat",
                         "name": "High hat",
                         "colors": {
-                        "Head.Hair.HatColor2": "#D91F26"
+                            "hat_color2": "#D91F26"
                         }
                     },
                     {
@@ -434,7 +437,7 @@
                         "id": "mohawk",
                         "name": "mohawk",
                         "colors": {
-                        "Head.Hair.HatColor2": "#ff0000"
+                            "hat_color2": "#ff0000"
                         }
                     },
                     {
@@ -442,7 +445,7 @@
                         "id": "mohawk",
                         "name": "mohawk",
                         "colors": {
-                        "Head.Hair.HatColor2": "#ff0000"
+                            "hat_color2": "#ff0000"
                         }
                     },
                     {
@@ -460,7 +463,7 @@
                         "id": "wig",
                         "name": "wig",
                         "colors": {
-                        "Head.Hair.HatColor": "#ff0000"
+                            "hat_color": "#ff0000"
                         }
                     },
                     {
@@ -468,7 +471,7 @@
                         "id": "big_bun",
                         "name": "big bun",
                         "colors": {
-                        "Head.Hair.HairColor": "#ff0000"
+                            "hair_color": "#ff0000"
                         }
                     },
                     {
@@ -476,7 +479,7 @@
                         "id": "bun_beard",
                         "name": "bun & beard",
                         "colors": {
-                        "Head.Hair.HairColor": "#ff0000"
+                            "hair_color": "#ff0000"
                         }
                     },
                     {
@@ -484,9 +487,9 @@
                         "id": "cowboy_hat",
                         "name": "cowboy hat",
                         "colors": {
-                        "Head.Hair.HatColor2": "#ac693c",
-                        "Head.Hair.HatColor": "#825a5d",
-                        "Head.Hair.HairColor": "#00ff00"
+                            "hat_color2": "#ac693c",
+                            "hat_color": "#825a5d",
+                            "hair_color": "#00ff00"
                         }
                     },
                     {
@@ -494,7 +497,7 @@
                         "id": "old_bun",
                         "name": "oldschool bun",
                         "colors": {
-                        "Head.Hair.HairColor": "#864646"
+                            "hair_color": "#864646"
                         }
                     },
                     {
@@ -502,7 +505,7 @@
                         "id": "spike_hair",
                         "name": "spikes",
                         "colors": {
-                        "Head.Hair.HairColor": "#ff0000"
+                            "hair_color": "#ff0000"
                         }
                     },
                     {
@@ -510,7 +513,7 @@
                         "id": "two_braids",
                         "name": "double braids",
                         "colors": {
-                        "Head.Hair.HairColor": "#ffd942"
+                            "hair_color": "#ffd942"
                         }
                     },
                     {
@@ -519,7 +522,7 @@
                         "id": "pharaoh",
                         "name": "pharaoh",
                         "colors": {
-                        "Head.Hair.HatColor2": "#ff0000"
+                            "hat_color2": "#ff0000"
                         }
                     },
                     {
@@ -531,8 +534,8 @@
                         "front": "EgyptianHat.svg",
                         "id": "egyptian_hat",
                         "colors": {
-                        "Head.Hair.HatColor2": "#437dc0",
-                        "Head.Hair.HatColor": "#4353c0"
+                            "hat_color2": "#437dc0",
+                            "hat_color": "#4353c0"
                         }
                     },
                     {
@@ -547,8 +550,8 @@
                         "id": "indian_hat",
                         "name": "Indian Hat",
                         "colors": {
-                        "Head.Hair.HatColor2": "#ffbd35",
-                        "Head.Hair.HatColor": "#ff6819",
+                            "hat_color2": "#ffbd35",
+                            "hat_color": "#ff6819",
                         "Extra.Glasses.PrimaryColor": "#ffed31"
                         }
                     },
@@ -568,7 +571,7 @@
                         "id": "mcafee",
                         "name": "John McAfee",
                         "colors": {
-                        "Head.Hair.HairColor": "#f5e392"
+                            "hair_color": "#f5e392"
                         }
                     },
                     {
@@ -599,8 +602,8 @@
                         "id": "rollers",
                         "name": "Rollers",
                         "colors": {
-                        "Head.Hair.HairColor": "#8d3d26",
-                        "Head.Hair.HatColor2": "#eb2626"
+                            "hair_color": "#8d3d26",
+                            "hat_color2": "#eb2626"
                         }
                     },
                     {
@@ -609,7 +612,7 @@
                         "id": "samurai",
                         "name": "Samurai",
                         "colors": {
-                        "Head.Hair.HatColor2": "#00f"
+                            "hat_color2": "#00f"
                         }
                     },
                     {
@@ -656,7 +659,7 @@
                         "id": "vitalik_hair",
                         "name": "Vitalik Hair",
                         "colors": {
-                        "Skin.Color": "#68984e"
+                            "skin_color": "#68984e"
                         }
                     }
                 ],
@@ -731,7 +734,7 @@
                         "id": "tongue_out",
                         "name": "tongue out",
                         "colors": {
-                        "BackgroundColor": "#E6E6E6"
+                        "background_color": "#E6E6E6"
                         }
                     },
                     {
@@ -739,7 +742,7 @@
                         "id": "what_mouth",
                         "name": "what mouth",
                         "colors": {
-                        "BackgroundColor": "#E6E6E6"
+                        "background_color": "#E6E6E6"
                         }
                     },
                     {
@@ -762,7 +765,7 @@
                         "id": "smug_lips",
                         "name": "smug lips",
                         "colors": {
-                        "Skin.Color": "#68984E"
+                            "skin_color": "#68984E"
                         }
                     },
                     {
@@ -780,7 +783,7 @@
                         "id": "bad_ass_mouth",
                         "name": "bad ass mouth",
                         "colors": {
-                        "Head.Hair.HairColor": "#ff0000"
+                            "hair_color": "#ff0000"
                         }
                     },
                     {
@@ -788,7 +791,7 @@
                         "id": "smug_mustache",
                         "name": "Smug Mustache",
                         "colors": {
-                        "Skin.Color": "#68984E"
+                            "skin_color": "#68984E"
                         }
                     },
                     {
@@ -796,7 +799,7 @@
                         "id": "drink_coffee",
                         "name": "Drink Coffee",
                         "colors": {
-                        "Skin.Color": "#68984e"
+                            "skin_color": "#68984e"
                         }
                     },
                     {
@@ -804,7 +807,7 @@
                         "id": "drink_wine",
                         "name": "Drink Wine",
                         "colors": {
-                        "Skin.Color": "#68984e"
+                            "skin_color": "#68984e"
                         }
                     },
                     {
@@ -851,7 +854,7 @@
                         "id": "basic_shirt",
                         "name": "basic shirt",
                         "colors": {
-                        "Body.Shirt.ShirtColor": "#2249FC"
+                            "shirt_color": "#2249FC"
                         }
                     },
                     {
@@ -859,7 +862,7 @@
                         "id": "camp_shirt",
                         "name": "camp shirt",
                         "colors": {
-                        "Body.Shirt.ShirtColor": "#FFFFFF"
+                            "shirt_color": "#FFFFFF"
                         }
                     },
                     {
@@ -867,7 +870,7 @@
                         "id": "suit",
                         "name": "Suit and tie",
                         "colors": {
-                        "Body.Shirt.ShirtColor": "#DD0000"
+                            "shirt_color": "#DD0000"
                         }
                     },
                     {
@@ -885,7 +888,7 @@
                         "id": "mexican_poncho",
                         "name": "Mexican Poncho",
                         "colors": {
-                        "Skin.Color": "#68984E"
+                            "skin_color": "#68984E"
                         }
                     },
                     {
@@ -906,7 +909,7 @@
                         "id": "vitalik_shirt",
                         "name": "Vitalik Shirt",
                         "colors": {
-                            "Skin.Color": "#68984e"
+                                "skin_color": "#68984e"
                         }
                     }
                 ]
@@ -931,11 +934,25 @@
                 return s.serializeToString(doc.querySelector('svg g'))
             }
 
+            function setColors(item_colors) {
+                Object.keys(item_colors).forEach(key => {
+                    colors[key] = item_colors[key]
+                })
+            }
+
             function filterPart(key, id) {
                 const arr = Object.keys(parts).filter((key) => key.includes(key)).reduce((cur, key) => { return Object.assign(cur, { [key]: parts[key] })}, {})[key]
 
                 if(id) {
-                    return arr.filter(i => i.id === id)[0]
+                    const item = arr.filter(i => i.id === id)[0]
+
+                    if(item.colors) {
+                        console.log('colors!', item.colors)
+
+                        setColors(item.colors)
+                    }
+
+                    return item
                 }
 
                 return arr
@@ -971,11 +988,15 @@
             }
 
             async function init () {
+                colors['background_color'] = '#d4c8de'
+                colors['skin_color'] = '#72a657'
+                colors['shirt_color'] = '#4fb68b'
+                colors['hair_color'] = '#000000'
 
-                let background_color = '#d4c8de'
-                let skin_color = '#72a657'
-                let shirt_color = '#4fb68b'
-                let hair_color = '#000000'
+                // let background_color = '#d4c8de'
+                // let skin_color = '#72a657'
+                // let shirt_color = '#4fb68b'
+                // let hair_color = '#000000'
 
                 let background = ''
                 let shirt_back = ''
@@ -985,18 +1006,27 @@
                 let eyes = ''
                 let mouth = ''
                 let neck = ''
-                let hair = ''
+                let hair_front = ''
+                let hair_back = ''
                 let glasses = ''
 
                 let selected_shirt = filterPart('shirt', document.querySelector('#shirt_select').value)
-                let selected_mouth = filterPart('mouth', document.querySelector('#mouth_select').value)
+                let selected_eyes = filterPart('eyes', document.querySelector('#eyes_select').value)
+                let selected_hair = {}
+                let selected_glasses = {}
+                let selected_mouth = {}
 
                 background = await getPart('general', filterPart('general', 'background').back)
-                shirt_back = await getPart('shirt', selected_shirt.back)
+                
 
                 if(selected_shirt.front) {
                     shirt_front = await getPart('shirt', selected_shirt.front)
-                    shirt_front = shirt_front.replace(/\#2249FC/gim, shirt_color)
+                    shirt_front = shirt_front.replace(/\#2249FC/gim, colors['shirt_color'])
+                }
+
+                if(selected_shirt.back) {
+                    shirt_back = await getPart('shirt', selected_shirt.back)
+                    shirt_back = shirt_back.replace(/\#2249FC/gim, colors['shirt_color'])
                 }
                 
                 head_back = await getPart('general', filterPart('general', 'head').back)
@@ -1006,17 +1036,37 @@
                 }
                 
                 head_front = await getPart('general', filterPart('general', 'head').front)
-                eyes = await getPart('eyes', filterPart('eyes', document.querySelector('#eyes_select').value).back)
+                eyes = await getPart('eyes', selected_eyes.back)
                 
                 if(document.querySelector('#hair_select').value !== '') {
-                    hair = await getPart('hair', filterPart('hair', document.querySelector('#hair_select').value).front)
-                    hair = hair.replace(/\#ff0000|\#00ff00/gim, hair_color)
+                    selected_hair = filterPart('hair', document.querySelector('#hair_select').value)
+
+                    if(selected_hair.back) {
+                        hair_back = await getPart('hair', selected_hair.front)
+                        hair_back = hair_back.replace(/\#ff0000|\#00ff00/gim, colors['hair_color'])
+                    }
+
+                    if(selected_hair.front) {
+                        hair_front = await getPart('hair', selected_hair.front)
+                        hair_front = hair_front.replace(/\#ff0000|\#00ff00/gim, colors['hair_color'])
+                    }
                 }
 
-                mouth = await getPart('mouth', selected_mouth.front)
+                if(document.querySelector('#mouth_select').value !== '') {
+                    selected_mouth = filterPart('mouth', document.querySelector('#mouth_select').value)
+                    mouth = await getPart('mouth', selected_mouth.front)
+                } else {
+                    selected_mouth = filterPart('mouth', 'basic_lips')
+                    mouth = await getPart('mouth', selected_mouth.front)
+                }
+
+                if(selected_mouth) {
+                    mouth = mouth.replace(/\#ff0000/gim, colors['hair_color'])
+                }
                 
                 if(document.querySelector('#glasses_select').value !== '') {
-                    glasses = await getPart('glasses', filterPart('glasses', document.querySelector('#glasses_select').value).front)
+                    selected_glasses = filterPart('glasses', document.querySelector('#glasses_select').value)
+                    glasses = await getPart('glasses', selected_glasses.front)
                 }
 
                 const template = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1093,19 +1143,32 @@
 
                 `
 
-                if(selected_shirt.id == "darth_pepe") {
+
+                if(selected_eyes.id === "ghandi") {
+                    shirt_back = ''
+                    shirt_front = ''
                     glasses = ''
-                    hair = ''
+                    hair_back = ''
+                    hair_front = ''
                     neck = ''
-                    // Darth vader has special black skin
-                    skin_color = "#000000"
+                    mouth = ''
                 }
 
-                if(selected_shirt.id == "pepemon") {
-                    hair = ''
+                if(selected_shirt.id === "darth_pepe") {
+                    glasses = ''
+                    hair_back = ''
+                    hair_front = ''
+                    neck = ''
+                    // Darth vader has special black skin
+                    colors['skin_color'] = "#000000"
+                }
+
+                if(selected_shirt.id === "pepemon") {
+                    hair_back = ''
+                    hair_front = ''
                     neck = ''
                     // Special pika-yellow skin
-                    skin_color = "#fef135"
+                    colors['skin_color'] = "#fef135"
 
                     // Enforce simple lips, red dot next to mouth has to fit
                     if(!selected_mouth.id !== 'simple_mouth') {
@@ -1113,27 +1176,114 @@
                     }
                 }
 
+                if(selected_glasses.id === 'pirate_hat') {
+                    hair_back = ''
+                    hair_front = ''
+                }
+
+                if(selected_hair.id === 'terrorist') {
+                    mouth = ''
+                    glasses = ''
+                }
+
+                if(selected_hair.id === 'pharaoh') {
+                    glasses = ''
+                    neck = ''
+
+                    if(selected_eyes.id !== 'simple_eyes') {
+                        eyes = await getPart('eyes', filterPart('eyes', 'colored_eyes').back)
+                    }
+                }
+
+                if(selected_hair.id === 'egyptian_hat') {
+                    glasses = ''
+
+                    if(selected_eyes.id !== 'simple_eyes') {
+                        eyes = await getPart('eyes', filterPart('eyes', 'colored_eyes').back)
+                    }
+                }
+
+                if(['future_robot_eyes', 'woke_eyes'].includes(selected_eyes.id)) {
+                    glasses = ''
+                }    
+                
+                if(['explosion_goggles', 'vr_set'].includes(selected_glasses.id)) {
+                    eyes = ''
+                } 
+
+                if(['frankenstein', 'knife_through_head', 'rollers'].includes(selected_glasses.id)) {
+                    glasses = ''
+                }    
+                
+                if(selected_eyes.id === 'monkas_eye') {
+                    // monkaS has sweat as "hair/hat"
+                    hair_back = ''
+                    hair_front = ''
+                }
+
+                // woke eyes do not fit with upwards caps
+                if(['bitcoin_cap', 'thug_life_cap'].includes(selected_hair.id) && selected_eyes.id === 'woke_eyes') {
+                    eyes = await getPart('eyes', filterPart('eyes', 'colored_eyes').back)
+                }
+
+                if(['chaplin', 'bun_beard', 'mcafee'].includes(selected_hair.id) && selected_mouth.id !== 'simple_mouth') {
+                    mouth = await getPart('mouth', filterPart('mouth', 'basic_lips').front)
+                }  
+
+                // Vitalik shirt already has hands *vitalik clap*
+                if(selected_shirt.id === 'vitalik_shirt'){
+                    
+                    // mouth = await getPart('mouth', filterPart('mouth', 'basic_lips').front)
+                    // eyes = await getPart('eyes', filterPart('eyes', 'ethereum_eyes').back)
+                    // hair_back = await getPart('hair', filterPart('hair', 'vitalik_hair').back)
+                    // hair_front = await getPart('hair', filterPart('hair', 'vitalik_hair').front)
+                    
+                    colors['skin_color'] = '#68984E'
+
+                    if(['drink_wine', 'drink_coffee', 'smug_lips', 'smug_mustache'].includes(selected_mouth.id)) {
+                        mouth = await getPart('mouth', filterPart('mouth', 'basic_lips').front)
+                    }
+                }
+
+                // Feelsbirthday already has a pointy party hat.
+                if(selected_mouth.id === 'feels_birthday') {
+                    hair_back = ''
+                    hair_front = ''
+
+                    if(selected_glasses.id === 'pirate_hat') {
+                        glasses = ''
+                    }
+                }                            
+
+                if(['nun', 'samurai'].includes(selected_hair.id)) {
+                    glasses = ''
+                    shirt_back = ''
+                    shirt_front = ''
+                }
+
                 const builder_pepe = `
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2500 2500">
-                        ${background.replace(/\#E6E6E6/gim, background_color)}
+                        ${background.replace(/\#E6E6E6/gim, colors['background_color'])}
+                        
+                        ${shirt_back}
 
-                        ${head_back.replace(/\#68984E/gim, skin_color)}
+                        ${hair_back}
 
-                        ${head_front.replace(/\#68984E/gim, skin_color)}
-        
-                        ${shirt_back.replace(/\#2249FC/gim, shirt_color)}
+                        ${head_back.replace(/\#68984E/gim, colors['skin_color'])}
 
-                        ${hair}
+                        ${hair_front}
 
                         ${shirt_front}
 
+                        ${head_front.replace(/\#68984E/gim, colors['skin_color'])}
+
                         ${neck}
 
-                        ${eyes.replace(/\#68984E/gim, skin_color)}
+                        ${eyes.replace(/\#68984E/gim, colors['skin_color'])}
+
+                        ${mouth}
 
                         ${glasses}
-
-                        ${mouth.replace(/\#ff0000/gim, hair_color)}
 
                     </svg>
                 `
